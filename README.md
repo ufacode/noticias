@@ -1,5 +1,7 @@
 # Ideas
-Service for E-mail newsletters.
+Service for E-mail subscription newsletters.
+
+[![Codeship Status for ufacode/noticias](https://codeship.com/projects/768c3580-4333-0134-a942-76986b1cab33/status?branch=master)](https://codeship.com/projects/168333)
 
 # The requirements:
 - Content editing for non-technical authors
