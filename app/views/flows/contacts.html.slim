@@ -1,0 +1,27 @@
+h1 Мои Контакты
+
+.panel.panel-success
+  .panel-body
+    form.form-horizontal
+      .form-group.col-lg-5
+        input placeholder="Имя" class="form-control"
+      .form-group.col-lg-5
+        input placeholder="E-mail" class="form-control"
+      .form-group.col-lg-2
+        button class="btn btn-success" Добавить
+
+table.table.table-hover.table-striped
+  tr
+    th ID
+    th Имя
+    th E-mail
+    th Кол-во подписок
+    th Кол-во отписанных
+  - %w(Иван Федор Джордж Санта Камбэл Джинна Марина Инна).each do |name|
+    tr
+      td= rand(10)
+      td= link_to name, flow_path(id: :contact)
+      td= "#{name}@mail.ru"
+      td= rand(10)
+      td= rand(10)
+

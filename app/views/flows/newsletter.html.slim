@@ -1,0 +1,58 @@
+h1 Мои рассылки - Рассылка
+
+form.form-horizontal
+  .row
+    .col-lg-8
+      .form-group
+        label Заголовок
+        input value="Рассылка для любителей классической музыки" class="form-control"
+      .form-group
+        label Описание (Визуальный редактор MarkitUp например)
+        textarea rows="10" class="form-control"
+          | Текст описания рассылки (интро)
+      .form-group
+        label Публичная ссылка для подписки
+        input value="http://domain.com/newsletter/sv8ySMnX" class="form-control"
+
+
+    .col-lg-3.col-lg-offset-1
+      .form-group
+        label Поиск контактов
+        input type="search" value="E-mail - автокомплит добавление" class="form-control"
+
+      .form-group
+        label Подписчики
+        ul
+          - %w(Николай Иван Федор Джон Илья Стивен).each do |name|
+            li
+              = link_to name, flow_path(id: 'contact')
+              .pull-right
+                = link_to 'X', '#delete', class: 'label label-danger'
+  .row
+    .form-group
+      button class="btn btn-success" Сохранить
+.row
+  .panel.panel-default
+    .panel-heading Письма
+    .panel-body
+      table.table-striped.table-hover.table
+        tr
+          th ID
+          th Заголовок
+          th Дата создания
+          th Кол-во отправленных писем
+          th Ошибка доставки
+        tr
+          td 101
+          td= link_to '%{user_name} послушай Сезоны Вивальди', flow_path(id: :email)
+          td 20-06-2016
+          td.text-success.text-center 100
+          td.text-danger.text-center 5
+        tr
+          td 100
+          td= link_to '%{user_name} послушай Сезоны Вивальди', flow_path(id: :email)
+          td 20-06-2016
+          td.text-success.text-center 182
+          td.text-danger.text-center 2
+
+
