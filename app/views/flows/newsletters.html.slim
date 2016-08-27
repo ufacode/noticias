@@ -1,0 +1,21 @@
+h1 Мои рассылки
+
+.pull-right.form-group
+  button class='btn btn-primary' + Создать рассылку
+
+table.table.table-striped.table-hover
+  tr
+    th ID
+    th Дата
+    th Название
+    th Кол-во подписчиков
+    th Кол-во отписавшихся
+    th Кол-во E-mail рассылок
+  - 15.times do |i|
+    tr
+      td= i
+      td= l Date.today - (0..30).to_a.sample.days
+      td= link_to 'Изучение основ JavaScript', flow_path(id: 'newsletter')
+      td.text-center= rand(100)
+      td.text-center= rand(100)
+      td.text-center= rand(10)

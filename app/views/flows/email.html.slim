@@ -1,0 +1,16 @@
+h1 Рассылка для любителей классической музыки - E-mail
+
+form.form-horizontal
+  .row
+    .form-group
+      label Заголовок письма
+      input value="%{user_name} вам письмо" class="form-control"
+    .form-group
+      label Визуальный редактор (MarkitUp например)
+      textarea rows="10" class="form-control"
+        | %{subject} Текст письма
+    .form-group
+      button class="btn btn-success" Сохранить
+
+      .pull-right
+        button class="btn btn-danger" Начать рассылку
