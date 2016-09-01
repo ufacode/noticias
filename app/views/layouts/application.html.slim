@@ -33,6 +33,15 @@ html
               = link_to 'Мои Рассылки', flow_path(id: 'newsletters')
             li
               = link_to 'Мои Контакты', flow_path(id: 'contacts')
+          ul.nav.navbar-nav.pull-right
+            - if user_signed_in?
+              li
+                = link_to 'Выйти', destroy_user_session_path, method: :delete
+            - else
+              li
+                = link_to 'Войти', new_user_session_path
+              li
+                = link_to 'Зарегистрироваться', new_user_registration_path
     .container
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do
