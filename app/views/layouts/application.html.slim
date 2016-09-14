@@ -28,11 +28,12 @@ html
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             li.active
-              = link_to 'Главная', '#'
-            li
-              = link_to 'Мои Рассылки', flow_path(id: 'newsletters')
-            li
-              = link_to 'Мои Контакты', flow_path(id: 'contacts')
+              = link_to 'Главная', '/'
+            - if user_signed_in?
+              li
+                = link_to 'Мои Рассылки', flow_path(id: 'newsletters')
+              li
+                = link_to 'Мои Контакты', flow_path(id: 'contacts')
           ul.nav.navbar-nav.pull-right
             - if user_signed_in?
               li
