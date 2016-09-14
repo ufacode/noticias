@@ -11,3 +11,8 @@
     font-size: 18px;
   }
 }
+
+label.required:after {
+  content: " *";
+  color: red;
+}

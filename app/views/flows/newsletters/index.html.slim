@@ -1,0 +1,16 @@
+h1 Мои рассылки
+
+.form-group
+  = link_to '+ Создать рассылку', new_flows_newsletter_path, class: 'btn btn-primary'
+- unless @newsletters.present?
+  .alert.alert-warning.text-center Нет созданных рассылок
+- else
+  table.table.table-striped.table-hover
+    tr
+      th ID
+      th Дата
+      th Название
+      th Кол-во подписчиков
+      th Кол-во отписавшихся
+      th Кол-во E-mail рассылок
+    = render @newsletters

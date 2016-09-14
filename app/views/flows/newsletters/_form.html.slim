@@ -1,0 +1,20 @@
+= form_for newsletter, url: url, html: { class: 'for-horizontal' } do |f|
+  .row
+    = render 'shared/errors', model: newsletter
+    .col-lg-8
+      .form-group
+        = f.label :name, value: 'Заголовок', class: 'required'
+        = f.text_field :name, class: 'form-control'
+      .form-group
+        = f.label :description, class: 'required',
+          value: 'Описание (Визуальный редактор MarkitUp например)'
+        = f.text_area :description, rows: '10', class: 'form-control'
+      .form-group
+       = f.label :link, value: 'Публичная ссылка для подписки'
+       = f.text_field :link, class: 'form-control'
+
+    - if show_contacts
+      = render 'contacts'
+  .row
+    .form-group
+      button class="btn btn-success" Сохранить

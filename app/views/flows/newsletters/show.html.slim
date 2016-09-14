@@ -1,0 +1,31 @@
+h1.pull-left Рассылка - #{@newsletter.name}
+= button_to 'Destroy', flows_newsletter_path(@newsletter), method: :delete,
+  class: 'btn btn-md btn-danger pull-right', data: { confirm: 'Are you sure ?' }
+
+= render 'form', newsletter: @newsletter, url: flows_newsletter_path,
+  show_contacts: true
+.row
+  .panel.panel-default
+    .panel-heading Письма
+    .panel-body
+      table.table-striped.table-hover.table
+        tr
+          th ID
+          th Заголовок
+          th Дата создания
+          th Кол-во отправленных писем
+          th Ошибка доставки
+        tr
+          td 101
+          td= link_to '%{user_name} послушай Сезоны Вивальди', flow_path(id: :email)
+          td 20-06-2016
+          td.text-success.text-center 100
+          td.text-danger.text-center 5
+        tr
+          td 100
+          td= link_to '%{user_name} послушай Сезоны Вивальди', flow_path(id: :email)
+          td 20-06-2016
+          td.text-success.text-center 182
+          td.text-danger.text-center 2
+
+

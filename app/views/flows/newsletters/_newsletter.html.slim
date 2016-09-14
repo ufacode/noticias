@@ -1,0 +1,7 @@
+tr
+  td= newsletter.id
+  td= newsletter.created_at.strftime('%Y-%m-%d')
+  td= link_to newsletter.name, flows_newsletter_path(newsletter)
+  td.text-center= rand(100)
+  td.text-center= rand(100)
+  td.text-center= rand(10)
