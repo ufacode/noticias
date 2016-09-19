@@ -4,6 +4,8 @@ class User < ApplicationRecord
          :trackable, :validatable
 
   has_many :newsletters
+  has_many :memberships
+  has_many :contacts, through: :memberships
 
   validates :name, presence: true, length: { maximum: 255 }
 end

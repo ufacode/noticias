@@ -1,0 +1,15 @@
+h1 Мои Контакты
+
+= render 'form', contact: @contact, url: flows_contacts_path
+
+- if @contacts.empty? 
+  .alert.alert-warning.text-center Нет добавленных контактов
+-else
+  table.table.table-hover.table-striped
+    tr
+      th ID
+      th Имя
+      th E-mail
+      th Кол-во подписок
+      th Кол-во отписанных
+    = render @contacts

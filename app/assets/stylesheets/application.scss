@@ -16,3 +16,11 @@ label.required:after {
   content: " *";
   color: red;
 }
+
+.form-inline {
+  .form-group {
+    input {
+      width: 100%;
+    }
+  }
+}

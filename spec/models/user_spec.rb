@@ -32,5 +32,13 @@ RSpec.describe User, type: :model do
     it 'responds to newsletters association' do
       expect(subject).to respond_to(:newsletters)
     end
+
+    it 'responds to memberships association' do
+      expect(subject).to respond_to(:memberships)
+    end
+
+    it 'responds to contacts association' do
+      expect(subject).to respond_to(:contacts)
+    end
   end
 end

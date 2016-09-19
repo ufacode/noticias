@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917154254) do
+ActiveRecord::Schema.define(version: 20161001091106) do
+
+  create_table "memberships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "contact_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.index ["contact_id"], name: "index_memberships_on_contact_id", using: :btree
+    t.index ["user_id", "contact_id"], name: "index_memberships_on_user_id_and_contact_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_memberships_on_user_id", using: :btree
+  end
 
   create_table "newsletters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"

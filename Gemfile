@@ -31,6 +31,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'sextant', group: [:development]
 gem 'slim-rails'
 gem 'spring', group: [:development]
+gem 'spring-commands-rspec', group: [:test]
 gem 'spring-watcher-listen', '~> 2.0.0', group: [:development]
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
