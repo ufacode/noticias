@@ -11,6 +11,8 @@ gem 'byebug', group: [:development, :test], platform: :mri
 gem 'bullet', group: [:development]
 gem 'coffee-rails', '~> 4.2'
 gem 'database_cleaner', group: [:development, :test]
+gem 'awesome_print', group: [:development, :test]
+gem 'shoulda-matchers', '~> 3.1', group: [:test]
 gem 'devise'
 gem 'factory_girl_rails', group: [:development, :test]
 gem 'faker', group: [:development, :test]

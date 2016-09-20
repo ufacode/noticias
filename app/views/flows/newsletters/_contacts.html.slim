@@ -1,0 +1,13 @@
+.col-lg-3.col-lg-offset-1
+  .form-group
+    label Поиск контактов
+    input type="search" value="E-mail - автокомплит добавление" class="form-control"
+
+  .form-group
+    label Подписчики
+    ul
+      - %w(Николай Иван Федор Джон Илья Стивен).each do |name|
+        li
+          = link_to name, flow_path(id: 'contact')
+          .pull-right
+            = link_to 'X', '#delete', class: 'label label-danger'
