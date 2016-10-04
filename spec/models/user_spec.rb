@@ -2,6 +2,10 @@
 RSpec.describe User, type: :model do
   subject { FactoryGirl.build(:user) }
 
+  let(:batman){ FactoryGirl.create(:user, name: 'Batman') }
+  let(:catwoman){ FactoryGirl.create(:user, name: 'Catwoman') }
+  let(:spiderman){ FactoryGirl.create(:user, name: 'spiderman') }
+
   context 'with validation' do
     it 'checks empty name' do
       subject.name = nil
@@ -28,17 +32,29 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'association' do
-    it 'responds to newsletters association' do
-      expect(subject).to respond_to(:newsletters)
+  context 'with associations' do
+    it { expect(subject).to respond_to(:newsletters) }
+    it { respond_to(:memberships) }
+    it { respond_to(:ownerships) }
+    it { respond_to(:subscribers) }
+    it { respond_to(:subscribeds) }
+  end
+
+  context 'with memberships' do
+    before do
+      batman.ownerships.create!(subscribed: catwoman, name: catwoman.name)
+      batman.ownerships.create!(subscribed: spiderman, name: spiderman.name)
     end
 
-    it 'responds to memberships association' do
-      expect(subject).to respond_to(:memberships)
+    it 'fetch right subscribeds' do
+      expect(batman.subscribeds.count).to eq 2
+      expect(batman.subscribeds).to include catwoman
+      expect(batman.subscribeds).to include spiderman
     end
 
-    it 'responds to contacts association' do
-      expect(subject).to respond_to(:contacts)
+    it 'fetch right subscriber' do
+      expect(catwoman.subscribers.first).to eq batman
+      expect(spiderman.subscribers.first).to eq batman
     end
   end
 end

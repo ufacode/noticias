@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 FactoryGirl.define do
   factory :membership do
-    user
-    contact
+    name { Faker::Name.name }
   end
 end
