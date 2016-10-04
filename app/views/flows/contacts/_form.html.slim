@@ -1,0 +1,11 @@
+.panel.panel-success
+  .panel-body
+    form.form-inline
+    = form_for contact, url: url, html: { class: 'for-inline' } do |f|
+      = render 'shared/errors', model: contact
+      .form-group.col-lg-5
+        = f.text_field :name, placeholder: 'Name', class: 'form-control'
+      .form-group.col-lg-5
+        = f.text_field :email, placeholder: 'E-mail', class: 'form-control'
+      .form-group.col-lg-2
+        = f.submit 'Добавить', class: 'btn btn-success'
